@@ -1,15 +1,21 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import NavBar from './nav/navbar';
-import CartContainer from './cart/cart';
-import LandingPageContainer from './landing_page/landing_page_container';
+import Cart from './cart/cart';
+import LandingPage from './landing_page/landing_page';
+import ItemShow from './items/item_show';
+import Confirmation from './confirmation/confirmation';
 
 const App = () => (
-  <div>
+  <div class="main">
     <NavBar />
-    {/* <Route exact path="/" component={LandingPageContainer} />
-    <Route exact path="/cart" component={CartContainer} /> */}
+    <Route exact path="/" component={LandingPage} />
+    <Switch>
+      <Route exact path="/cart" component={Cart} />
+      <Route exact path="/:sku/:item" component={ItemShow} />
+      <Route exact path="/confirmation" component={Confirmation} />
+    </Switch>
   </div>
 );
 

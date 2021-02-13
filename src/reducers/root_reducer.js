@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-// import errorsReducer from './errors_reducer';
-// import entitiesReducer from './entities_reducer';
+import itemsReducer from './items_reducer';
+import cartReducer from './cart_reducer';
 
 const RootReducer = combineReducers({
-    // entities: entitiesReducer,
-    // errors: errorsReducer,
+    items: itemsReducer,
+    cart: cartReducer
 });
 
 export default RootReducer;

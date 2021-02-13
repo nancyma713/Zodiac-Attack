@@ -1,0 +1,156 @@
+html, body, h1, h2, h3, h4, h5, h6, header, footer, div, span, section,
+p, label, input, form, img, caption, button, aside, ul, ol, li, tr, td,
+th, a, dl, dt, dd, nav, time {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  box-sizing: inherit;
+  font-family: inherit;
+  text-decoration: inherit;
+  vertical-align: baseline;
+  background: transparent;
+  list-style-type: none;
+}
+
+/* Main */
+.main {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  margin: 0 20px;
+}
+
+/* NavBar */
+.nav-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+    border-bottom: 1px solid gray;
+}
+
+.links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+/* LandingPage */
+
+.landing-page {
+  margin: auto;
+}
+
+.landing-page h1 {
+  text-align: center;
+  padding: 10px;
+}
+
+.landing-page ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 10px 10px 10px 15px;
+  width: 100%;
+}
+
+.animal-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid black;
+  padding: 20px;
+  width: 200px;
+  height: 300px;
+  margin: 15px;
+  box-shadow: 0px 30px 70px -30px #a8a6a5;
+  background-color: rgba(228, 228, 228, 0.568);
+}
+
+.animal-card:hover {
+  box-shadow: 0px 30px 70px -30px #777675;
+}
+
+.item-name {
+  color: black;
+  font-size: 20px;
+  padding: 15px;
+}
+
+.item-name:hover {
+  color: grey;
+}
+
+.item-price {
+  padding: 15px;
+  color: cadetblue;
+}
+
+.strikeout {
+  color: red;
+  text-decoration: line-through;
+}
+
+.discount-price {
+  color: cadetblue;
+  text-decoration: none;
+}
+
+/* Show Page */
+
+.item-show-page {
+  margin: 50px;
+}
+
+/* Cart */
+
+.cart-page {
+  display: flex;
+  width: 100%;
+}
+
+.cart-left {
+  width: 70%;
+  margin-right: 10%;
+}
+
+.cart-right {
+  width: 30%;
+}
+
+.cart-page h3 {
+  text-align: center;
+  margin: 20px;
+}
+
+.cart-items {
+  border: 1px solid black;
+}
+
+.cart-item {
+  align-items: center;
+  border: 1px solid grey;
+  margin: 3%;
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.cart-item div {
+  text-align: center;
+}
+
+.cart-page button {
+  text-align: center;
+  border: 1px solid rgb(148, 57, 57);
+  border-radius: 8px;
+  color: white;
+  background-color: rgb(218, 127, 127);
+  font-size: 20px;
+  margin: 10px;
+  padding: 8px;
+}
+
+.cart-page button:hover {
+  cursor: pointer;
+  background-color: rgb(194, 100, 100);
+}

@@ -6,10 +6,10 @@ class NavBar extends React.Component {
     render() {
         return (
             <div className='nav-container'>
-                <div className='home'><Link to='/'><h1>Woooow Cow</h1></Link></div>
+                <div className='home'><Link to='/'><h1>Zodiac Attack</h1></Link></div>
                 <div className='links'>
                     <Link to='/cart'>
-                        <span className="nav-link">My Cart</span>
+                        <div>My Cart</div>
                     </Link>
                 </div>
             </div>
@@ -17,4 +17,4 @@ class NavBar extends React.Component {
     }
 }
 
-export default NavBar
+export default NavBar;
