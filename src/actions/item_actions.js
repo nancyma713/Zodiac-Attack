@@ -1,12 +1,23 @@
+import * as ItemUtil from '../utils/item_util';
+
 export const RECEIVE_ALL_ITEMS = "RECEIVE_ALL_ITEMS";
 export const RECEIVE_ITEM = "RECEIVE_ITEM";
 
-export const receiveAllItems = (item) => ({
+const receiveAllItems = (items) => ({
     type: RECEIVE_ALL_ITEMS,
-    item
+    items
 });
 
-export const receiveItem = (item) => ({
+const receiveItem = (item) => ({
     type: RECEIVE_ITEM,
     item
 });
+
+export const fetchAllItems = () => dispatch => (
+    dispatch(receiveAllItems(ItemUtil.fetchAllItems()))
+);
+
+export const fetchItem = (item) => dispatch => (
+    ItemUtil.fetchItem(item)
+        .then((item) => dispatch(receiveItem(item)))
+);

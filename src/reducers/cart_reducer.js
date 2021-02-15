@@ -1,4 +1,4 @@
-import { LOAD_CART, ADD_PRODUCT, REMOVE_PRODUCT, CHANGE_PRODUCT_QUANTITY } from '../actions/cart_actions';
+import { ADD_PRODUCT, REMOVE_PRODUCT, INCREASE_PRODUCT_QUANTITY, DECREASE_PRODUCT_QUANTITY } from '../actions/cart_actions';
 
 const initialState = {
     products: []
@@ -6,24 +6,43 @@ const initialState = {
 
 const CartReducer = (state = initialState, action) => {
     Object.freeze(state);
+    let nextState;
+    let updatedItem;
     
     switch (action.type) {
-        case LOAD_CART:
-            return {
-                ...state,
-                products: action.payload
-            };
         case ADD_PRODUCT:
-            return {
-                ...state,
-                productToAdd: Object.assign({}, action.payload)
-            };
+            nextState = [...state.products];
+
+            updatedItem = nextState.findIndex(item => item.name === action.payload.name);
+
+            if (updatedItem < 0) {
+                nextState.push({ ...action.payload, quantity: 1 });
+            } else {
+                const item = {
+                    ...nextState[updatedItem]
+                };
+
+                item.quantity++;
+                nextState[updatedItem] = item;
+            }
+
+            return { ...state, products: nextState };
         case REMOVE_PRODUCT:
+            nextState = [...state.products];
+
+            updatedItem = nextState.findIndex(
+                item => item.name === action.payload.name
+            );
+
+            nextState.splice(updatedItem, 1);
+
+            return { ...state, products: nextState };
+        case INCREASE_PRODUCT_QUANTITY:
             return {
                 ...state,
-                productToRemove: Object.assign({}, action.payload)
+                productToChange: Object.assign({}, action.payload)
             };
-        case CHANGE_PRODUCT_QUANTITY:
+        case DECREASE_PRODUCT_QUANTITY:
             return {
                 ...state,
                 productToChange: Object.assign({}, action.payload)

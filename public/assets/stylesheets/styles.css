@@ -26,6 +26,12 @@ th, a, dl, dt, dd, nav, time {
     justify-content: space-between;
     padding: 20px;
     border-bottom: 1px solid gray;
+    text-decoration: none;
+    
+}
+
+.home h1 {
+  color: rgb(129, 35, 35);
 }
 
 .links {
@@ -34,7 +40,17 @@ th, a, dl, dt, dd, nav, time {
   align-items: center;
 }
 
-/* LandingPage */
+.links div {
+  color: black;
+  padding: 5px;
+}
+
+.links div:hover {
+  color: grey;
+  transition: 0.3s;
+}
+
+/* Landing Page */
 
 .landing-page {
   margin: auto;
@@ -73,7 +89,7 @@ th, a, dl, dt, dd, nav, time {
 .item-name {
   color: black;
   font-size: 20px;
-  padding: 15px;
+  padding: 5px;
 }
 
 .item-name:hover {
@@ -81,7 +97,7 @@ th, a, dl, dt, dd, nav, time {
 }
 
 .item-price {
-  padding: 15px;
+  padding: 5px;
   color: cadetblue;
 }
 
@@ -93,6 +109,19 @@ th, a, dl, dt, dd, nav, time {
 .discount-price {
   color: cadetblue;
   text-decoration: none;
+}
+
+.add-to-cart-btn {
+  cursor: pointer;
+  padding: 5px;
+  border: 1px solid grey;
+  border-radius: 5px;
+}
+
+.add-to-cart-btn:hover {
+  background-color: rgb(199, 128, 128);
+  color: white;
+  transition: 0.3s;
 }
 
 /* Show Page */

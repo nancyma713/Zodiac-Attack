@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from "react-redux";
+import { addProduct } from '../../actions/cart_actions';
 
 class Item extends React.Component {
     constructor(props) {
@@ -24,10 +26,18 @@ class Item extends React.Component {
                     <span className={discountAvail ? "strikeout" : ""}>{`$${price}`}</span>
                     <span className="discount-price">{discountAvail ? ` $${discountedPrice}` : ""}</span>
                 </p>
+                <button className="add-to-cart-btn" onClick={() => {
+                    this.props.addProduct(this.props.data)
+                }}>Add To Cart</button>
             </div>
         )
     }
 
 }
 
-export default Item;
+
+const mdp = dispatch => ({
+    addProduct: data => dispatch(addProduct(data))
+})
+
+export default connect(null, mdp)(Item);

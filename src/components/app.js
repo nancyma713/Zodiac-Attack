@@ -8,7 +8,7 @@ import ItemShow from './items/item_show';
 import Confirmation from './confirmation/confirmation';
 
 const App = () => (
-  <div class="main">
+  <div className="main">
     <NavBar />
     <Route exact path="/" component={LandingPage} />
     <Switch>

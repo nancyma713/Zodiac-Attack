@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 
 class Cart extends React.Component {
     constructor(props) {
@@ -10,13 +10,13 @@ class Cart extends React.Component {
     }
 
     handlePurchase() {
-        <Redirect to="/confirmation" />
+        return <Redirect to="/confirmation" />
     }
 
     render() {
-        // const items = this.props.cartItems.map((item, i) => {
-        // replace below
-        const items = [{ image: 'assets/images/dog.jpg', name: 'Dog' }, { image: 'assets/images/rat.jpg', name: 'Rat' }].map((item, i) => {
+        const intToFloat = (num, decPlaces) => num.toFixed(decPlaces);
+
+        const items = this.props.cartItems.map((item, i) => {
             return (
                 <li key={i} className="cart-item">
                     <div>
@@ -32,6 +32,16 @@ class Cart extends React.Component {
             )
         });
 
+        let subtotal = 0;
+        for (let i = 0; i < this.props.cartItems.length; i++) {
+            const item = this.props.cartItems[i];
+            subtotal += item.onSale ? item.price * 0.85 : item.price;
+        }
+        const total = intToFloat(subtotal + 0.0625 * subtotal + 3, 2);
+        subtotal = intToFloat(subtotal, 2);
+        const tax = intToFloat(0.0625 * subtotal, 2);
+        const shipping = intToFloat(3, 2);
+
         return (
             <div className="cart-page">
                 <div className="cart-left">
@@ -42,7 +52,12 @@ class Cart extends React.Component {
                 </div>
                 <div className="cart-right">
                     <section>
-                        <h4></h4>Order Summary
+                        <h4>Order Summary</h4>
+                        <p>{items.map((item, i) => <li key={i}>{item.name}</li>)}</p>
+                        <p>Subtotal: ${subtotal}</p>
+                        <p>Tax: ${tax}</p>
+                        <p>Shipping: ${shipping}</p>
+                        <p>Total: ${total}</p>
                     </section>
                     <button onClick={this.handlePurchase}>Purchase</button>
                 </div>
