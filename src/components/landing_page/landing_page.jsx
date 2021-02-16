@@ -5,9 +5,16 @@ import { connect } from "react-redux";
 import { fetchAllItems, fetchItem } from '../../actions/item_actions';
 
 class LandingPage extends React.Component {
+    constructor(props) {
+        super(props);
+    }
 
     componentDidMount() {
-        this.props.fetchAllItems();
+        if (!this.props.isLoaded) {
+            this.props.fetchAllItems();
+        } else {
+            return null;
+        }
     }
 
     render() {
@@ -28,9 +35,16 @@ class LandingPage extends React.Component {
     }
 }
 
+const msp = (state) => {
+    return {
+        items: state.items,
+        isLoaded: (state.items.ox !== undefined)
+    };
+}
+
 const mdp = (dispatch) => ({
     fetchAllItems: () => dispatch(fetchAllItems()),
     fetchItem: (item) => dispatch(fetchItem(item))
 })
 
-export default connect(null, mdp)(LandingPage);
+export default connect(msp, mdp)(LandingPage);

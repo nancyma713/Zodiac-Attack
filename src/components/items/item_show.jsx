@@ -39,6 +39,7 @@ class ItemShow extends React.Component {
                             <h3>{this.props.item.name}</h3>
                             <p><strong>Traits:</strong> {this.props.item.description}</p>
                             <p><strong>SKU:</strong> {this.props.item.sku}</p>
+                            <p><strong>Inventory:</strong> {this.props.item.inventory}</p>
                             {discountAvail ? <p className="on-sale-now">On Sale Now!</p> : null}
                             <p className="item-price">
                                 <span className={discountAvail ? "strikeout" : ""}>{`$${price}`}</span>

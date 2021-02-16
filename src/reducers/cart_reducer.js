@@ -8,7 +8,7 @@ const CartReducer = (state = initialState, action) => {
     Object.freeze(state);
     let nextState;
     let updatedItem;
-    
+
     switch (action.type) {
         case ADD_PRODUCT:
             nextState = [...state.products];
