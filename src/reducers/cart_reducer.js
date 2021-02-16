@@ -1,4 +1,4 @@
-import { ADD_PRODUCT, REMOVE_PRODUCT, INCREASE_PRODUCT_QUANTITY, DECREASE_PRODUCT_QUANTITY } from '../actions/cart_actions';
+import { ADD_PRODUCT, REMOVE_PRODUCT, INCREASE_PRODUCT_QUANTITY, DECREASE_PRODUCT_QUANTITY, CLEAR_CART } from '../actions/cart_actions';
 
 const initialState = {
     products: []
@@ -38,15 +38,40 @@ const CartReducer = (state = initialState, action) => {
 
             return { ...state, products: nextState };
         case INCREASE_PRODUCT_QUANTITY:
-            return {
-                ...state,
-                productToChange: Object.assign({}, action.payload)
+            nextState = [...state.products];
+
+            updatedItem = nextState.findIndex(
+                item => item.name === action.payload.name
+            );
+
+            const incrementedItem = {
+                ...nextState[updatedItem]
             };
+
+            incrementedItem.quantity++;
+
+            nextState[updatedItem] = incrementedItem;
+
+            return { ...state, products: nextState };
+            
         case DECREASE_PRODUCT_QUANTITY:
-            return {
-                ...state,
-                productToChange: Object.assign({}, action.payload)
+            nextState = [...state.products];
+
+            updatedItem = nextState.findIndex(
+                item => item.name === action.payload.name
+            );
+
+            const decrementedItem = {
+                ...nextState[updatedItem]
             };
+
+            decrementedItem.quantity--;
+
+            nextState[updatedItem] = decrementedItem;
+
+            return { ...state, products: nextState };
+        case CLEAR_CART:
+            return { products: [] };
         default:
             return state;
     }

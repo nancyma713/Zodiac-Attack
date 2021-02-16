@@ -36,7 +36,7 @@ class Item extends React.Component {
 }
 
 
-const mdp = dispatch => ({
+const mdp = (dispatch) => ({
     addProduct: data => dispatch(addProduct(data))
 })
 

@@ -14,7 +14,7 @@ const App = () => (
     <Switch>
       <Route exact path="/cart" component={Cart} />
       <Route exact path="/:sku/:item" component={ItemShow} />
-      <Route exact path="/confirmation" component={Confirmation} />
+      {/* <Route exact path="/confirmation" component={Confirmation} /> */}
     </Switch>
   </div>
 );

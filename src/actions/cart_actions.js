@@ -1,7 +1,8 @@
 export const ADD_PRODUCT = 'ADD_PRODUCT';
 export const REMOVE_PRODUCT = 'REMOVE_PRODUCT';
 export const INCREASE_PRODUCT_QUANTITY = 'INCREASE_PRODUCT_QUANTITY';
-export const DECREASE_PRODUCT_QUANTITY = 'DECREASE_PRODUCT_QUANTITY'
+export const DECREASE_PRODUCT_QUANTITY = 'DECREASE_PRODUCT_QUANTITY';
+export const CLEAR_CART = "CLEAR_CART";
 
 export const addProduct = (product) => ({
     type: ADD_PRODUCT,
@@ -21,4 +22,8 @@ export const increaseProductQuantity = (product) => ({
 export const decreaseProductQuantity = (product) => ({
     type: DECREASE_PRODUCT_QUANTITY,
     payload: product
+});
+
+export const clearCart = () => ({
+    type: CLEAR_CART
 });
