@@ -1,5 +1,7 @@
 # Zodiac Attack
 
+[Live Site](https://zodiacattack.herokuapp.com/#/)
+
 ## Install dependencies
 
 ### `npm install`
