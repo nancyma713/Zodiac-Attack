@@ -19,14 +19,13 @@ class LandingPage extends React.Component {
 
         return (
             <div className='landing-page'>
-                <h1>Find your favorite zodiac posters!</h1>
+                <h1>Shop your favorite zodiac posters!</h1>
                 <ul>
                     {animals}
                 </ul>
             </div>
         )
     }
-
 }
 
 const mdp = (dispatch) => ({

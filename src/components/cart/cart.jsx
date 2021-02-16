@@ -30,14 +30,14 @@ class Cart extends React.Component {
                         
                     </div>
                     <div>
-                        <button onClick={() => {
+                        <button id="quantity-button" onClick={() => {
                             this.props.decreaseProductQuantity(item)
                         }}>-</button>
                         {item.quantity}
-                        <button onClick={() => {
+                        <button id="quantity-button" onClick={() => {
                             this.props.increaseProductQuantity(item)
                         }}>+</button>
-                        <button onClick={() => {
+                        <button id="quantity-button" onClick={() => {
                             this.props.removeProduct(item)
                         }}>Remove Product</button>
                     </div>
@@ -63,10 +63,10 @@ class Cart extends React.Component {
                 <div className="cart-page">
                     <div className="cart-left">
                         <h2>Your Items</h2>
-                        <ul className="cart-items">
+                        {items.length ? <ul className="cart-items">
                             {items}
-                            { items.length ? <button onClick={() => this.props.clearCart()}>Clear All</button> : null }
-                        </ul>
+                            {items.length ? <button id="quantity-button" onClick={() => this.props.clearCart()}>Clear All</button> : null }
+                        </ul> : (<div className="no-items-cart">No Items! <Link to="/">Browse Items Here</Link></div>)}
                     </div>
                     <div className="cart-right">
                         <section className={items.length ? "order-summary" : "order-summary-hidden"}>

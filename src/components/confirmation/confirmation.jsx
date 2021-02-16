@@ -7,10 +7,10 @@ class Confirmation extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="confirmation-page">
                 <h1>Your purchase was successful!</h1>
-                <div>
-                    <h4>Order Summary</h4>
+                <div className="confirmation-summary">
+                    <h2>Order Summary</h2>
                     <p>Total Items: {this.props.totalQuantity}</p>
                     <p>Total Price: ${this.props.total}</p>
                 </div>

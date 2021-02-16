@@ -14,12 +14,14 @@ th, a, dl, dt, dd, nav, time {
 }
 
 /* Main */
+
 .main {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   margin: 0 20px;
 }
 
 /* NavBar */
+
 .nav-container {
     display: flex;
     flex-direction: row;
@@ -27,11 +29,10 @@ th, a, dl, dt, dd, nav, time {
     padding: 20px;
     border-bottom: 1px solid gray;
     text-decoration: none;
-    
 }
 
 .home h1 {
-  color: rgb(129, 35, 35);
+  color: rgb(190, 61, 61);
 }
 
 .links {
@@ -98,7 +99,7 @@ th, a, dl, dt, dd, nav, time {
 
 .item-price {
   padding: 5px;
-  color: cadetblue;
+  color: blue;
 }
 
 .strikeout {
@@ -107,7 +108,7 @@ th, a, dl, dt, dd, nav, time {
 }
 
 .discount-price {
-  color: cadetblue;
+  color: blue;
   text-decoration: none;
 }
 
@@ -124,10 +125,77 @@ th, a, dl, dt, dd, nav, time {
   transition: 0.3s;
 }
 
+.add-modal-inner {
+  font-size: 20px;
+  height: 100px;
+  width: 150px;
+  padding: 2%;
+  padding-top: 4%;
+  top: 30%;
+  background-color: white;
+  text-align: center;
+  position: relative;
+  margin: 0 auto;
+  border: 1px solid whitesmoke;
+  border-radius: 5px;
+}
+
+.add-modal-inner button {
+  text-align: center;
+  border: 1px solid rgb(148, 57, 57);
+  border-radius: 8px;
+  color: white;
+  background-color: rgb(218, 127, 127);
+  font-size: 16px;
+  margin: 10px;
+  padding: 4px 8px;
+}
+
+.add-modal-inner button:hover {
+  cursor: pointer;
+}
+
 /* Show Page */
 
+.item-show-container {
+  display: flex;
+  justify-content: center;
+}
+
 .item-show-page {
-  margin: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(228, 228, 228, 0.568);
+  border: 1px solid black;
+  margin: 20px;
+  padding: 20px;
+  width: 500px;
+}
+
+.image-container {
+  margin: 20px;
+}
+
+.item-info-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.on-sale-now {
+  color: red;
+  font-weight: bold;
+}
+
+.item-info-container h3 {
+  align-content: center;
+  font-size: 22px;
+  margin: 10px;
+}
+
+.item-info-container p {
+  margin: 10px;
 }
 
 /* Cart */
@@ -135,6 +203,10 @@ th, a, dl, dt, dd, nav, time {
 .cart-page {
   display: flex;
   width: 100%;
+}
+
+.no-items-cart {
+  text-align: center;
 }
 
 .cart-left {
@@ -184,6 +256,11 @@ th, a, dl, dt, dd, nav, time {
   padding: 8px;
 }
 
+#quantity-button {
+  font-size: 16px;
+  padding: 4px 8px;
+}
+
 .cart-page button:hover {
   cursor: pointer;
   background-color: rgb(194, 100, 100);
@@ -215,7 +292,7 @@ th, a, dl, dt, dd, nav, time {
 .modal-inner {
   font-size: 16px;
   height: 200px;
-  width: 400px;
+  width: 500px;
   padding: 2%;
   padding-top: 4%;
   top: 30%;
@@ -233,11 +310,21 @@ th, a, dl, dt, dd, nav, time {
   border-radius: 8px;
   color: white;
   background-color: rgb(218, 127, 127);
-  font-size: 20px;
+  font-size: 16px;
   margin: 10px;
-  padding: 8px;
+  padding: 4px 8px;
 }
 
 .modal-inner button:hover {
   cursor: pointer;
+}
+
+/* Confirmation */
+
+.confirmation-summary h2 {
+  margin: 10px;
+}
+
+.confirmation-summary p {
+  margin: 10px;
 }
