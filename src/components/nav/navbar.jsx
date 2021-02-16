@@ -1,9 +1,16 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 class NavBar extends React.Component {
+    constructor(props) {
+        super(props);
+    }
 
     render() {
+        let quantity = 0;
+        this.props.cartItems.forEach(item => quantity += item.quantity);
+
         return (
             <div className='nav-container'>
                 <div className='home'>
@@ -11,7 +18,7 @@ class NavBar extends React.Component {
                 </div>
                 <div className='links'>
                     <Link to='/cart'>
-                        <div>My Cart</div>
+                        <div>My Cart <span className="cart-quantity">{quantity}</span></div>
                     </Link>
                 </div>
             </div>
@@ -19,4 +26,8 @@ class NavBar extends React.Component {
     }
 }
 
-export default NavBar;
+const msp = (state) => ({
+    cartItems: state.cart.products,
+})
+
+export default connect(msp, null)(NavBar);

@@ -26,13 +26,21 @@ th, a, dl, dt, dd, nav, time {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 20px;
+    padding: 10px;
     border-bottom: 1px solid gray;
     text-decoration: none;
 }
 
 .home h1 {
-  color: rgb(190, 61, 61);
+  background-color: rgb(190, 61, 61);
+  border-radius: 40px;
+  color: white;
+  font-family: fantasy;
+  padding: 15px 15px 2px 15px;
+}
+
+.home h1:hover {
+  box-shadow: 1px 1px 5px grey;
 }
 
 .links {
@@ -49,6 +57,14 @@ th, a, dl, dt, dd, nav, time {
 .links div:hover {
   color: grey;
   transition: 0.3s;
+}
+
+.cart-quantity {
+  background-color: rgb(221, 67, 67);
+  border-radius: 12px;
+  color: white;
+  font-size: 13px;
+  padding: 3px 7px;
 }
 
 /* Landing Page */
@@ -239,6 +255,21 @@ th, a, dl, dt, dd, nav, time {
   padding: 20px;
   display: flex;
   justify-content: space-around;
+  text-decoration: none;
+}
+
+.cart-item-name {
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+}
+
+.cart-item-name:hover {
+  color: grey;
+}
+
+.cart-item-price {
+  color: black;
 }
 
 .cart-item div {

@@ -22,12 +22,19 @@ class Cart extends React.Component {
         const intToFloat = (num, decPlaces) => num.toFixed(decPlaces);
 
         const items = this.props.cartItems.map((item, i) => {
+            const discountAvail = item.onSale;
+            let price = discountAvail ? intToFloat(item.price * 0.85, 2) : intToFloat(item.price, 2);
+            let subtotal = intToFloat(price * item.quantity, 2);
+
             return (
                 <li key={i} className={item.quantity === 0 ? "cart-item-hidden" : "cart-item"}>
                     <div>
                         <Link to={`/${item.sku}/${item.name}`}><img src={item.image} /></Link>
-                        <Link to={`/${item.sku}/${item.name}`}><p>{item.name}</p></Link>
-                        
+                        <Link to={`/${item.sku}/${item.name}`}><p className="cart-item-name">{item.name}</p></Link>
+                        <p className="cart-item-price">
+                            <p><strong>Item Price</strong>: ${price}</p>
+                            <p><strong>Item Subtotal</strong>: ${subtotal}</p>
+                        </p>
                     </div>
                     <div>
                         <button id="quantity-button" onClick={() => {
@@ -49,9 +56,8 @@ class Cart extends React.Component {
         let totalQuantity = 0;
         for (let i = 0; i < this.props.cartItems.length; i++) {
             const item = this.props.cartItems[i];
-            subtotal += item.onSale ? item.price * 0.85 : item.price;
-            subtotal *= item.quantity;
             totalQuantity += item.quantity;
+            subtotal += item.onSale ? (item.price * item.quantity) * 0.85 : (item.price * item.quantity);
         }
         const total = intToFloat(subtotal + 0.0625 * subtotal + 3, 2);
         subtotal = intToFloat(subtotal, 2);
@@ -66,7 +72,7 @@ class Cart extends React.Component {
                         {items.length ? <ul className="cart-items">
                             {items}
                             {items.length ? <button id="quantity-button" onClick={() => this.props.clearCart()}>Clear All</button> : null }
-                        </ul> : (<div className="no-items-cart">No Items! <Link to="/">Browse Items Here</Link></div>)}
+                        </ul> : (<div className="no-items-cart">No Items!<br /><Link to="/" className="browse-items"><button>Browse Items Here</button></Link></div>)}
                     </div>
                     <div className="cart-right">
                         <section className={items.length ? "order-summary" : "order-summary-hidden"}>
